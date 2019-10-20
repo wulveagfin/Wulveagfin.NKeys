@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Wulveagfin, LLC</Authors>
+    <Company>Wulveagfin, LLC</Company>
+    <Description>NKeyHash is a IEnumerable-enabled multidimensional array. It can currently use System.Collections.HashTable, System.Collections.Generic.Dictionary, System.Collections.Generic.SortedDictionary, or System.Collections.Concurrent.ConcurrentDictionary for the underlying base hashable object. NKeyHash uses generics to create nested hashable objects.
+
+MultiKeyValue is used to express internal objects within the NKeyHash universe.  It can also be used on its own as a generic based object representing multiple keys to one value.</Description>
+    <Copyright>2019</Copyright>
+    <PackageIconUrl>http://wulveagfin.com/favicon.ico</PackageIconUrl>
+    <PackageTags>ienumerable nkeyhash nkeyvalue multikeyvalue multikey mulltidimensional nkeydictionary dictionary</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Wulveagfin.NKeyHash.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Backup\**" />
+    <EmbeddedResource Remove="Backup\**" />
+    <None Remove="Backup\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Original\Cube10.cs" />
+    <Compile Remove="Original\Cube2.cs" />
+    <Compile Remove="Original\Cube3.cs" />
+    <Compile Remove="Original\Cube4.cs" />
+    <Compile Remove="Original\Cube5.cs" />
+    <Compile Remove="Original\Cube6.cs" />
+    <Compile Remove="Original\Cube7.cs" />
+    <Compile Remove="Original\Cube8.cs" />
+    <Compile Remove="Original\Cube9.cs" />
+    <Compile Remove="Original\Cubez2.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Original\" />
+  </ItemGroup>
+
+</Project>
