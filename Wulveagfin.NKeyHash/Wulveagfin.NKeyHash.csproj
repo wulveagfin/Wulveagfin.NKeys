@@ -4,12 +4,16 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Wulveagfin, LLC</Authors>
     <Company>Wulveagfin, LLC</Company>
-    <Description>NKeyHash is a IEnumerable-enabled multidimensional array. It can currently use System.Collections.HashTable, System.Collections.Generic.Dictionary, System.Collections.Generic.SortedDictionary, or System.Collections.Concurrent.ConcurrentDictionary for the underlying base hashable object. NKeyHash uses generics to create nested hashable objects.
+    <Description>NKeyHash is a IEnumerable-enabled multidimensional array. It can use System.Collections.HashTable, System.Collections.Generic.Dictionary, System.Collections.Generic.SortedDictionary, or System.Collections.Concurrent.ConcurrentDictionary for the underlying base hashable object. NKeyHash uses generics to create nested hashable objects.
 
-MultiKeyValue is used to express internal objects within the NKeyHash universe.  It can also be used on its own as a generic based object representing multiple keys to one value.</Description>
+NKeyValue is used to express internal objects within the NKeyHash universe.  It can also be used on its own as a generic based object representing multiple keys to one value.</Description>
     <Copyright>2019</Copyright>
     <PackageIconUrl>http://wulveagfin.com/favicon.ico</PackageIconUrl>
     <PackageTags>ienumerable nkeyhash nkeyvalue multikeyvalue multikey mulltidimensional nkeydictionary dictionary</PackageTags>
+    <PackageLicenseUrl>https://www.gnu.org/licenses/gpl-3.0.en.html</PackageLicenseUrl>
+    <RepositoryType>github</RepositoryType>
+    <RepositoryUrl>https://github.com/wulveagfin/Wulveagfin.NKeys</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/wulveagfin/Wulveagfin.NKeys</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -37,6 +41,12 @@ MultiKeyValue is used to express internal objects within the NKeyHash universe. 
 
   <ItemGroup>
     <Folder Include="Original\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="favicon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
