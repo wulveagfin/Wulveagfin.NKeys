@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Wulveagfin, LLC</Authors>
     <Company>Wulveagfin, LLC</Company>
     <Description>NKeyHash is a IEnumerable-enabled multidimensional array. It can use System.Collections.HashTable, System.Collections.Generic.Dictionary, System.Collections.Generic.SortedDictionary, or System.Collections.Concurrent.ConcurrentDictionary for the underlying base hashable object. NKeyHash uses generics to create nested hashable objects.
@@ -14,9 +14,14 @@ NKeyValue is used to express internal objects within the NKeyHash universe.  It 
     <RepositoryType>github</RepositoryType>
     <RepositoryUrl>https://github.com/wulveagfin/Wulveagfin.NKeys</RepositoryUrl>
     <PackageProjectUrl>https://github.com/wulveagfin/Wulveagfin.NKeys</PackageProjectUrl>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Wulveagfin.NKeyHash.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <DocumentationFile>Wulveagfin.NKeyHash.xml</DocumentationFile>
   </PropertyGroup>
 
