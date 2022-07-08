@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wulveagfin.NKeyHash", "Wulveagfin.NKeyHash\Wulveagfin.NKeyHash.csproj", "{14671387-DFA4-45AF-984C-FA6A9BE62955}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wulveagfin.NKeyHashStandard", "Wulveagfin.NKeyHash\Wulveagfin.NKeyHashStandard.csproj", "{14671387-DFA4-45AF-984C-FA6A9BE62955}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wulveagfin.NKeyHash.Generator", "Wulveagfin.NKeyHash.Generator\Wulveagfin.NKeyHash.Generator.csproj", "{4E59FECE-3920-4E74-888E-2DCAE005008E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wulveagfin.NKeyHash.Test", "Wulveagfin.NKeyHash.Test\Wulveagfin.NKeyHash.Test.csproj", "{66BDB4AE-2704-4F49-A57D-1ECB59594CB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wulveagfin.NKeyHash.Test", "Wulveagfin.NKeyHash.Test\Wulveagfin.NKeyHash.Test.csproj", "{66BDB4AE-2704-4F49-A57D-1ECB59594CB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

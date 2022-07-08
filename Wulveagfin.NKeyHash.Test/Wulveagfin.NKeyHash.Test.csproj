@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Wulveagfin.NKeyHash\Wulveagfin.NKeyHash.csproj" />
+    <ProjectReference Include="..\Wulveagfin.NKeyHash\Wulveagfin.NKeyHashStandard.csproj" />
   </ItemGroup>
 
 </Project>
