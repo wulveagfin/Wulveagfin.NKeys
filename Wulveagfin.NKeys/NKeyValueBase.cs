@@ -292,32 +292,38 @@
         /// <param name="z"></param>
         public void Remove(A z)
         {
-            lock (Lock)
+            switch (this.UnderlyingHashType)
             {
-                switch (this.UnderlyingHashType)
-                {
-                    default:
-                    case UnderlyingHashType.Dictionary:
+                default:
+                case UnderlyingHashType.Dictionary:
+                    lock (Lock)
+                    {
                         if (this.ValuesDictionary.ContainsKey(z))
                             this.ValuesDictionary.Remove(z);
-                        break;
+                    }
+                    break;
 
-                    case UnderlyingHashType.ConcurrentDictionary:
-                        VALUE v1;
-                        if (this.ValuesConcurrent.ContainsKey(z))
-                            this.ValuesConcurrent.TryRemove(z, out v1);
-                        break;
+                case UnderlyingHashType.ConcurrentDictionary:
+                    VALUE v1;
+                    if (this.ValuesConcurrent.ContainsKey(z))
+                        this.ValuesConcurrent.TryRemove(z, out v1);
+                    break;
 
-                    case UnderlyingHashType.HashTable:
+                case UnderlyingHashType.HashTable:
+                    lock (Lock)
+                    {
                         if (this.ValuesHash.ContainsKey(z))
                             this.ValuesHash.Remove(z);
-                        break;
+                    }
+                    break;
 
-                    case UnderlyingHashType.SortedDictionary:
+                case UnderlyingHashType.SortedDictionary:
+                    lock (Lock)
+                    {
                         if (this.ValuesSorted.ContainsKey(z))
                             this.ValuesSorted.Remove(z);
-                        break;
-                }
+                    }
+                    break;
             }
         }
 
@@ -436,13 +442,13 @@
         /// <param name="d"></param>
         public void Upsert(bool replaceExistingData, A z, VALUE d)
         {
-            lock (Lock)
+            int level = 0;
+            switch (this.UnderlyingHashType)
             {
-                int level = 0;
-                switch (this.UnderlyingHashType)
-                {
-                    default:
-                    case UnderlyingHashType.Dictionary:
+                default:
+                case UnderlyingHashType.Dictionary:
+                    lock (Lock)
+                    {
                         if (this.ValuesDictionary.ContainsKey(z))
                         {
                             if (replaceExistingData)
@@ -454,23 +460,26 @@
                         else level = 1;
 
                         if (level == 1) { this.ValuesDictionary.Add(z, d); }
-                        break;
+                    }
+                    break;
 
-                    case UnderlyingHashType.ConcurrentDictionary:
-                        if (this.ValuesConcurrent.ContainsKey(z))
+                case UnderlyingHashType.ConcurrentDictionary:
+                    if (this.ValuesConcurrent.ContainsKey(z))
+                    {
+                        if (replaceExistingData)
                         {
-                            if (replaceExistingData)
-                            {
-                                this.ValuesConcurrent[z] = d;
-                                return;
-                            }
+                            this.ValuesConcurrent[z] = d;
+                            return;
                         }
-                        else level = 1;
+                    }
+                    else level = 1;
 
-                        if (level == 1) { this.ValuesConcurrent.TryAdd(z, d); }
-                        break;
+                    if (level == 1) { this.ValuesConcurrent.TryAdd(z, d); }
+                    break;
 
-                    case UnderlyingHashType.HashTable:
+                case UnderlyingHashType.HashTable:
+                    lock (Lock)
+                    {
                         if (this.ValuesHash.ContainsKey(z))
                         {
                             if (replaceExistingData)
@@ -482,9 +491,12 @@
                         else level = 1;
 
                         if (level == 1) { this.ValuesHash.Add(z, d); }
-                        break;
+                    }
+                    break;
 
-                    case UnderlyingHashType.SortedDictionary:
+                case UnderlyingHashType.SortedDictionary:
+                    lock (Lock)
+                    {
                         if (this.ValuesSorted.ContainsKey(z))
                         {
                             if (replaceExistingData)
@@ -496,8 +508,8 @@
                         else level = 1;
 
                         if (level == 1) { this.ValuesSorted.Add(z, d); }
-                        break;
-                }
+                    }
+                    break;
             }
         }
 
