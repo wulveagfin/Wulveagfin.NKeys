@@ -347,3 +347,14 @@ healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
+
+# Local tooling and AI assistant artifacts (Markdown files remain tracked)
+.dotnet-cli
+.claude/settings.local.json
+.aider.input.history
+.aider.tags.cache.v3/
+.continue/index/
+.cursor/telemetry/
+.windsurf/cascade/telemetry/
+.roo/code-index/
+.cline/code-index/
